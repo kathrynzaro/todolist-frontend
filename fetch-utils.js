@@ -76,3 +76,20 @@ export async function logoutUser() {
         location.replace('../');
     }
 }
+
+export async function addNewTask(taskInfo) {
+    const res = await fetch(`${BASE_URL}/api/v1/tasks`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(taskInfo),
+        credentials: 'include',
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+        return data;
+    }
+}
