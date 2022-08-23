@@ -23,18 +23,25 @@ header {
 
 main {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     width: 200px;
-    height: 250px;
+
+}
+
+.auth-form {
+    margin: 20px;
 }
 
 input {
     padding: 5px;
+    margin: 7px 0;
 }
 
 button {
