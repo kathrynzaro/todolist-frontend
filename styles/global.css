@@ -25,6 +25,38 @@ main {
     padding: 20px;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 200px;
+    height: 250px;
+}
+
+input {
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+label {
+    border: 0;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; 
+}
+
 footer {
     position: sticky;
     bottom: 0;
