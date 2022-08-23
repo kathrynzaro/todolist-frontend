@@ -35,9 +35,24 @@ export async function getUser() {
     }
 }
 
+export async function checkUser() {
+    const user = await getUser();
+    if (!user) location.replace('../');
+}
+
 export async function redirectIfLoggedIn() {
     const user = await getUser();
     if (user) {
         location.replace('./tasks');
+    }
+}
+
+export async function logoutUser() {
+    const resp = await fetch(`${BASE_URL}/api/v1/users/sessions`, {
+        method: 'DELETE',
+        credentials: 'include',
+    });
+    if (resp.ok) {
+        location.replace('../');
     }
 }
