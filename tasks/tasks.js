@@ -5,6 +5,7 @@ import {
     addNewTask,
     getTasks,
     completeTasks,
+    deleteTasks,
 } from '../fetch-utils.js';
 
 checkUser();
@@ -31,19 +32,28 @@ function renderTask(task) {
     if (task.complete) {
         button.classList.add('complete');
     }
-
     button.addEventListener('click', () => {
         handleComplete(task.id, { complete: true });
-        onLoad();
     });
 
-    li.append(button);
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = '';
+    deleteBtn.addEventListener('click', () => {
+        handleDelete(task.id);
+    });
+
+    li.append(button, deleteBtn);
     return li;
 }
 
 async function handleComplete(id, completed) {
     await completeTasks(id, completed);
-    displayTasks();
+    onLoad();
+}
+
+async function handleDelete(id) {
+    await deleteTasks(id);
+    onLoad();
 }
 
 function displayTasks() {
