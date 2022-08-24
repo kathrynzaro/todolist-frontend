@@ -1,4 +1,4 @@
-import { checkUser, logoutUser, addNewTask } from '../fetch-utils.js';
+import { getUser, checkUser, logoutUser, addNewTask, getTasks } from '../fetch-utils.js';
 
 checkUser();
 
@@ -7,6 +7,13 @@ const taskForm = document.getElementById('add-task');
 const taskList = document.getElementById('task-list');
 
 let tasks = [];
+
+async function onLoad() {
+    const user = await getUser();
+    if (!user) location.replace('../');
+    tasks = await getTasks();
+    displayTasks();
+}
 
 function renderTask(task) {
     const li = document.createElement('li');
@@ -36,3 +43,5 @@ taskForm.addEventListener('submit', async (e) => {
     displayTasks();
     taskForm.reset();
 });
+
+onLoad();

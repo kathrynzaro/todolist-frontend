@@ -93,3 +93,19 @@ export async function addNewTask(taskInfo) {
         return data;
     }
 }
+
+export async function getTasks() {
+    const res = await fetch(`${BASE_URL}/api/v1/tasks`, {
+        method: 'GET',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+        return data;
+    }
+}
