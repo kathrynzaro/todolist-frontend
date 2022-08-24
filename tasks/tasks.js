@@ -1,4 +1,11 @@
-import { getUser, checkUser, logoutUser, addNewTask, getTasks } from '../fetch-utils.js';
+import {
+    getUser,
+    checkUser,
+    logoutUser,
+    addNewTask,
+    getTasks,
+    completeTasks,
+} from '../fetch-utils.js';
 
 checkUser();
 
@@ -18,13 +25,32 @@ async function onLoad() {
 function renderTask(task) {
     const li = document.createElement('li');
     li.textContent = `${task.description}`;
+
+    const button = document.createElement('button');
+    button.textContent = '';
+    if (task.complete) {
+        button.classList.add('complete');
+    }
+
+    button.addEventListener('click', () => {
+        handleComplete(task.id, { complete: true });
+        onLoad();
+    });
+
+    li.append(button);
     return li;
+}
+
+async function handleComplete(id, completed) {
+    await completeTasks(id, completed);
+    displayTasks();
 }
 
 function displayTasks() {
     taskList.textContent = '';
     for (let task of tasks) {
         const li = renderTask(task);
+
         taskList.appendChild(li);
     }
 }

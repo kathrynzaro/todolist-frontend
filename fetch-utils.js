@@ -109,3 +109,20 @@ export async function getTasks() {
         return data;
     }
 }
+
+export async function completeTasks(id, completed) {
+    const res = await fetch(`${BASE_URL}/api/v1/tasks/${id}`, {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(completed),
+        credentials: 'include',
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+        return data;
+    }
+}
