@@ -31,13 +31,15 @@ function renderTask(task) {
     button.textContent = '';
     if (task.complete) {
         button.classList.add('complete');
+        li.classList.add('completed-text');
     }
     button.addEventListener('click', () => {
         handleComplete(task.id, { complete: true });
     });
 
     const deleteBtn = document.createElement('button');
-    deleteBtn.textContent = '';
+    deleteBtn.textContent = 'delete';
+    deleteBtn.classList.add('delete');
     deleteBtn.addEventListener('click', () => {
         handleDelete(task.id);
     });
