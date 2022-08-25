@@ -10,7 +10,7 @@
 
 body {
     height: 100vh;
-    font-family: 'Rubik Wet Paint', cursive;
+    font-family: 'Karla';
     background: black;
     color: rgba(255, 255, 255, 0.739);
     display: grid;
@@ -19,16 +19,20 @@ body {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 
 }
 
 header {
     position: sticky;
     top: 0;
-    padding: 0px 20px;
+    padding: 0px 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Rubik Wet Paint', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 3px;
 }
 
 main {
@@ -62,7 +66,18 @@ input {
     letter-spacing: 3px;
 }
 
-h1 {
+#add-task input {
+    font-size: 1.1rem;
+}
+
+header button {
+    font-family: 'Karla';
+    padding: 7px;
+}
+
+header h1:hover {
+    color: brown;
+    transition: all 0.5s ease 0s;
 
 }
 
@@ -75,11 +90,14 @@ button {
     border-radius: 5px;
     opacity: .2;
     text-transform: lowercase;
+    font-size: 1rem;
 }
 
 button:hover {
     cursor: pointer;
     opacity: .5;
+    transition: all 0.5s ease 0s;
+
 }
 
 label {
@@ -103,17 +121,16 @@ label {
 .complete:hover {
     cursor: default;
     opacity: .5;
+    transition: all 0.5s ease 0s;
+
 }
 
-#add-task {
-    margin-bottom: 50px;
-}
 
 ul {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     border-radius: 20px;
     padding: 30px;
-    width: 260px;
+    width: 280px;
 }
 
 li {
@@ -131,17 +148,19 @@ li {
 }
 
 li button {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     background-color:white;
     border-radius: 3px;
     border: 2px solid white;
-    margin: 0 0  0 25px;
+    margin: 0 0 0 15px;
     opacity: 1;
 }
 
 li button:hover {
     opacity: .5;
+    transition: all 0.5s ease 0s;
+
 }
 
 .delete {
@@ -151,17 +170,31 @@ li button:hover {
     background-color: rgba(255, 255, 255, 0);
     border: none;
     width: auto;
+    color: brown;
+    margin-bottom: 7px;
 }
 
 .delete:hover {
     opacity: .5;
+    transition: all 0.5s ease 0s;
+
+}
+
+.tasks-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    font-size: 1.1rem;
 }
 
 footer {
     position: sticky;
     bottom: 0;
     padding: 7px 20px;
-    font-size: .8em;
+    font-size: .9em;
     display: flex;
     justify-content: flex-end;
 }
