@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&family=Titillium+Web:wght@200;400;600&display=swap" />
+  <link rel="stylesheet" href="../styles/reset.css" />
+  <link rel="stylesheet" href="../styles/global.css" />
+  <title>Do or Die</title>
+</head>
+<body>
+  <header>
+    <h1>Do or Die</h1>
+      <button id="logout">Logout</button>
+
+  </header>
+
+  <main>
+    <section class="tasks-container">
+      <form id="add-task">
+        <label for="description">Description</label>
+        <input type="text" name="description" placeholder="task" />
+        <button>add</button>
+      </form>
+      <!-- <h1>tasks</h1> -->
+      <ul id="task-list"></ul>
+    </section>
+  </main>
+
+  <footer>&copy;2022 Kat Zaro</footer>
+
+  <script type="module" src="tasks.js"></script>
+
+</body>
+</html>
